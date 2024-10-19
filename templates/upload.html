@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload - Road Damage Detection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <header class="bg-blue-500 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl lg:text-2xl text-white font-bold">Road Damage Detection</h1>
+      <nav>
+        <a href="{{ url_for('home') }}" class="text-white mx-2">Home</a>
+        <a href="{{ url_for('upload_page') }}" class="text-white mx-2">Upload</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="container mx-auto py-10 px-4">
+    <section class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-6">Upload Road Damage Data</h2>
+      <form id="upload-form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+        <!-- File Input -->
+        <div class="mb-4">
+          <label for="file" class="block text-gray-700 font-bold mb-2">Choose Image File:</label>
+          <input type="file" id="file" name="file" accept="image/*" 
+                 class="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 required onchange="previewImage(event)" aria-label="Upload Image File">
+        </div>
+
+        <!-- Image Preview -->
+        <div class="mb-4" id="preview-container" style="display: none;">
+          <label class="block text-gray-700 font-bold mb-2">Preview:</label>
+          <img id="image-preview" src="#" alt="Image Preview" 
+               class="w-full h-auto max-h-64 object-cover rounded-md shadow-md"/>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-blue-500 text-white py-3 px-6 rounded-full w-full hover:bg-blue-700 transition duration-300">Upload</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-500 p-4 text-white text-center mt-10">
+    &copy; 2024 Road Damage Detection. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for Image Preview -->
+  <script>
+    // Function to preview the selected image
+    function previewImage(event) {
+      const file = event.target.files[0];
+      const previewContainer = document.getElementById('preview-container');
+      const previewImage = document.getElementById('image-preview');
+
+      // Check if the selected file is an image
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          previewImage.src = e.target.result;
+          previewContainer.style.display = 'block';  // Show the preview container
+        };
+        reader.readAsDataURL(file);
+      } else {
+        // Clear the preview if the file is not an image
+        previewImage.src = '#';
+        previewContainer.style.display = 'none';  // Hide the preview container
+        alert('Please select a valid image file (JPEG, PNG, etc.)');
+      }
+    }
+  </script>
+</body>
+</html>

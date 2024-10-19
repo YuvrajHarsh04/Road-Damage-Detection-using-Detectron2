@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Road Damage Detection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <header class="bg-blue-500 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl lg:text-2xl text-white font-bold">Road Damage Detection</h1>
+      <nav>
+        <a href="{{ url_for('home') }}" class="text-white mx-2">Home</a>
+        <a href="{{ url_for('upload_page') }}" class="text-white mx-2">Upload</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center h-64 md:h-96 text-white flex items-center justify-center" style="background-image: url('https://dtnext-prod.s3.ap-south-1.amazonaws.com/imported/2023-01/35e058ab-647b-4a9a-b34b-cfec499d5157/Untitled.jpg');">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-5xl font-bold">Detect Road Damages with AI</h2>
+      <p class="text-lg mt-4">A smarter way to identify and fix road issues using technology.</p>
+      <a href="{{ url_for('upload_page') }}" class="inline-block mt-6 bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300">Get Started</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="container mx-auto py-12 px-4 md:px-0">
+    <h3 class="text-2xl md:text-4xl font-bold text-center mb-8">About Road Damage Detection</h3>
+    <div class="md:flex justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+      <div class="md:w-1/3">
+        <img src="https://viso.ai/wp-content/uploads/2023/05/pothole-detection-infrastructure-assessment-deeplearning-image-segmentation-yolov8.jpg" alt="Road damage" class="w-full rounded-lg shadow-md">
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-lg text-gray-700">
+          Our Road Damage Detection project leverages machine learning and image recognition to detect and classify road damages such as cracks, potholes, and other structural defects. This system helps in quick identification of areas needing repair, ensuring better road maintenance and safety.
+        </p>
+        <p class="mt-4 text-lg text-gray-700">
+          By using cutting-edge AI algorithms, our model processes real-time data to pinpoint damage with high accuracy, assisting road maintenance authorities to prioritize their efforts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="bg-gray-200 py-12">
+    <div class="container mx-auto px-4 md:px-0">
+      <h3 class="text-2xl md:text-4xl font-bold text-center mb-8">Key Features</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h4 class="text-xl font-semibold mb-4">Real-time Detection</h4>
+          <p class="text-gray-700">
+            AI-powered detection for identifying road damage in real-time, allowing for faster response and repairs.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h4 class="text-xl font-semibold mb-4">High Accuracy</h4>
+          <p class="text-gray-700">
+            Our machine learning model is trained with vast datasets to ensure accurate damage identification across different road types.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h4 class="text-xl font-semibold mb-4">Cost-effective</h4>
+          <p class="text-gray-700">
+            Automating the detection process reduces costs and time for road inspection, leading to better resource management.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-500 p-4 text-white text-center mt-10">
+    &copy; 2024 Road Damage Detection. All rights reserved.
+  </footer>
+</body>
+</html>
